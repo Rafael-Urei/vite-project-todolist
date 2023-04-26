@@ -48,7 +48,6 @@ export const Login = () => {
     const signInWithGoogle = async () => {
         try {
             await signInWithPopup(auth, googleProvider);
-            localStorage.setItem('AlreadyKnown', 'true');
             navigate('/home');
         } catch(error) {
             console.log(error);
@@ -59,7 +58,6 @@ export const Login = () => {
     const onSubmit: SubmitHandler<IFormInput> = async data => {
         try {
             await signInWithEmailAndPassword(auth, data.email, data.password);
-            localStorage.setItem('AlreadyKnown', 'true');
             navigate('/home');
         } catch(e: any) {
             console.log(e.message)
